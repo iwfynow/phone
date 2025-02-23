@@ -43,6 +43,7 @@ class ContactViewModel extends ChangeNotifier {
   void update(Contact contact) async {
     Contact? updatedContact = await _contactsRepository.updateContact(contact);
     if (updatedContact != null) {
+      contactList.removeWhere((el) => el.id == contact.id);
       contactList.add(updatedContact);
     }
     sortContactList();

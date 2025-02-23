@@ -1,8 +1,8 @@
 import 'dart:typed_data';
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/contact.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/models/contact_mapper.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/models/contact_mapper.dart';
 import 'package:share_plus/share_plus.dart';
 
 class ShareContact extends StatefulWidget {
@@ -14,7 +14,6 @@ class ShareContact extends StatefulWidget {
 }
 
 class ShareContactState extends State<ShareContact> {
-
   bool _includePhoto = true;
   bool _includeName = true;
   bool _includePhone = true;

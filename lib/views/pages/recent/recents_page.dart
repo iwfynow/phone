@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phone_book/views/widgets/call_log_expansion_tile.dart';
+import 'package:phone/views/widgets/call_log_expansion_tile.dart';
 import 'package:provider/provider.dart';
 import '../../../viewmodels/contact_view_model.dart';
 

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phone_book/generated/l10n.dart';
+import 'package:phone/generated/l10n.dart';
 import '../viewmodels/navigation_view_model.dart';
 import 'package:provider/provider.dart';
 

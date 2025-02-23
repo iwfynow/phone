@@ -1,4 +1,4 @@
-name: phone_book
+name: phone
 description: "A new Flutter project."
 publish_to: 'none'
 version: 0.1.0
@@ -29,6 +29,7 @@ dependencies:
   share_plus: ^10.1.4
   flutter_dotenv: ^5.2.1
   url_launcher: ^6.3.1
+  fluttertoast: ^8.2.12
   flutter_localizations:
     sdk: flutter
 

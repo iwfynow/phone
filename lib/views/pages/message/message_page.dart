@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/contact.dart';
-import 'package:phone_book/viewmodels/message_view_model.dart';
+import 'package:phone/viewmodels/message_view_model.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../../models/message_entity.dart';
 import '../../../services/contact_service.dart';

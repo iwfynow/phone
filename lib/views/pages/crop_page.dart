@@ -3,7 +3,7 @@ import 'package:crop/crop.dart';
 import 'dart:io';
 import 'dart:ui';
 import 'package:image_picker/image_picker.dart';
-import 'package:phone_book/generated/l10n.dart';
+import 'package:phone/generated/l10n.dart';
 
 class CropPage extends StatelessWidget {
   final XFile? avatarImage;

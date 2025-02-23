@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/viewmodels/speech_recognition_view_model.dart';
-import 'package:phone_book/views/pages/call_history.dart';
-import 'package:phone_book/views/pages/settings.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/viewmodels/speech_recognition_view_model.dart';
+import 'package:phone/views/pages/call_history.dart';
+import 'package:phone/views/pages/settings.dart';
 import 'search_contact_page.dart';
 import 'package:provider/provider.dart';
 
@@ -29,13 +29,15 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
                 searchProvider.startListening();
               },
               onLongPressUp: () async {
-                await searchProvider.stopListening();
-                Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => SearchContactPage(
-                            contactSearchQuery:
-                                searchProvider.recognizedText ?? "")));
+                if (await searchProvider.requestMicrophonePermission()) {
+                  await searchProvider.stopListening();
+                  Navigator.push(
+                      context,
+                      MaterialPageRoute(
+                          builder: (context) => SearchContactPage(
+                              contactSearchQuery:
+                                  searchProvider.recognizedText ?? "")));
+                }
               },
               child: const Icon(Icons.mic_none),
             ),
@@ -52,7 +54,8 @@ class SearchAppBar extends StatelessWidget implements PreferredSizeWidget {
                 },
                 itemBuilder: (BuildContext context) => <PopupMenuEntry<int>>[
                   PopupMenuItem(value: 0, child: Text(S.of(context).call_history)),
-                  PopupMenuItem(value: 1, child: Text(S.of(context).settings)),
+                        PopupMenuItem(
+                            value: 1, child: Text(S.of(context).settings))
                 ]
               ),
             ),

@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:image_picker/image_picker.dart';
-import 'package:phone_book/viewmodels/message_view_model.dart';
-import 'package:phone_book/viewmodels/speech_recognition_view_model.dart';
+import 'package:phone/viewmodels/message_view_model.dart';
+import 'package:phone/viewmodels/speech_recognition_view_model.dart';
 
 class MessageInputFields extends StatefulWidget {
   final void Function(String message) onSend;

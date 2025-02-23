@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/contact.dart';
-import 'package:phone_book/views/widgets/contact_list_tile.dart';
+import 'package:phone/views/widgets/contact_list_tile.dart';
 import 'package:provider/provider.dart';
 import '../../../viewmodels/filtration_viewmodel.dart';
 

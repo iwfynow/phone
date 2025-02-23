@@ -1,4 +1,4 @@
-package com.example.phone_book
+package com.home.phone
 
 import android.Manifest
 import android.content.Intent
@@ -16,8 +16,8 @@ import android.provider.CallLog
 import android.telephony.SmsManager
 
 class MainActivity : FlutterActivity() {
-    private val CALL_CHANNEL = "com.example.phone_book/calls"
-    private val SMS_CHANNEL = "com.example.sms/sender"
+    private val CALL_CHANNEL = "com.home.phone/calls"
+    private val SMS_CHANNEL = "com.home.sms/sender"
     private val CALL_LOG_CHANNEL = "call_log_channel"
     private var pendingPhoneNumber: String? = null
     private var pendingMessage: String? = null
@@ -90,7 +90,7 @@ class MainActivity : FlutterActivity() {
     override fun onRequestPermissionsResult(requestCode: Int, permissions: Array<out String>, grantResults: IntArray) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults)
     
-        if (requestCode == 1) { // requestCode для журнала звонков
+        if (requestCode == 1) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 println("Разрешение на журнал звонков предоставлено")
                 getCallLogs()
@@ -99,7 +99,7 @@ class MainActivity : FlutterActivity() {
             }
         }
     
-        if (requestCode == 2) { // requestCode для звонков
+        if (requestCode == 2) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 println("Разрешение на звонки предоставлено")
             } else {
@@ -107,7 +107,7 @@ class MainActivity : FlutterActivity() {
             }
         }
     
-        if (requestCode == 3) { // requestCode для SMS
+        if (requestCode == 3) {
             if (grantResults.isNotEmpty() && grantResults[0] == PackageManager.PERMISSION_GRANTED) {
                 println("Разрешение на SMS предоставлено")
                 if (pendingPhoneNumber != null && pendingMessage != null) {

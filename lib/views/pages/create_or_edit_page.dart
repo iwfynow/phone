@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:crop/crop.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/views/pages/settings.dart';
-import 'package:phone_book/views/widgets/contact_phone_fields.dart';
-import 'package:phone_book/views/widgets/contact_photo_editor.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/views/pages/settings.dart';
+import 'package:phone/views/widgets/contact_phone_fields.dart';
+import 'package:phone/views/widgets/contact_photo_editor.dart';
 import '../../viewmodels/contact_view_model.dart';
 import 'dart:typed_data';
 import 'package:image_picker/image_picker.dart';
@@ -62,6 +62,8 @@ class CreateContactPageState extends State<CreateOrEditPage> {
         actions: [
           TextButton(
               onPressed: () {
+                contact.displayName =
+                    "${contact.name.first} ${contact.name.last}";
                 if (globalKey.currentState!.validate()) {
                   globalKey.currentState!.save();
                   if(isCreated){
@@ -111,7 +113,8 @@ class CreateContactPageState extends State<CreateOrEditPage> {
               ContactTextField(
                 label: S.of(context).fname,
                 keyboardType: TextInputType.name,
-                initialValue: contact.displayName,
+                initialValue:
+                    contact.name.first.isNotEmpty ? contact.name.first : "",
                 maxLength: 20,
                 validator: (String? value) {
                   if (value == null || value.isEmpty){
@@ -121,7 +124,6 @@ class CreateContactPageState extends State<CreateOrEditPage> {
                 },
                 onSaved: (value) {
                   contact.displayName = value!;
-                  contact.name.first = value;
                 },
               ),
               ContactTextField(

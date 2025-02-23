@@ -1,6 +1,8 @@
+import 'package:flutter/services.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:permission_handler/permission_handler.dart';
-import 'package:phone_book/models/message_entity.dart';
+import 'package:phone/core/error/app_error.dart';
+import 'package:phone/models/message_entity.dart';
 import '../services/contact_service.dart';
 import '../models/contact_entity.dart';
 import '../models/objectbox.g.dart';
@@ -65,9 +67,11 @@ class ContactsRepository {
   Future<List<Contact>> fetchContacts() async {
     if (await checkPermission()) {
       try {
-        return await FlutterContacts.getContacts(
-            withProperties: true, withPhoto: true);
-      } catch (e) {
+        final contactList = await FlutterContacts.getContacts(
+            withProperties: true, withPhoto: true, withAccounts: true);
+        return contactList;
+      } on PlatformException catch (e) {
+        AppError.showErrorToast(e);
         return Future.error("Ошибка при загрузке контактов: $e");
       }
     } else {
@@ -88,7 +92,7 @@ class ContactsRepository {
     String id = contact.id;
     await FlutterContacts.updateContact(contact);
     return FlutterContacts.getContact(id,
-        withPhoto: true, withProperties: true);
+        withPhoto: true, withProperties: true, withAccounts: true);
   }
 
   Future<void> addFavouriteContact(ContactEntity contact) async {

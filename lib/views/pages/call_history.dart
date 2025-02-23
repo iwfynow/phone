@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/views/widgets/call_log_expansion_tile.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/views/widgets/call_log_expansion_tile.dart';
 import '../../views/pages/recent/recents_page.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodels/contact_view_model.dart';
@@ -42,7 +42,9 @@ class CallHistoryState extends State<CallHistory> {
           bottom: PreferredSize(
             preferredSize: widget.preferredSize,
             child: Container(
-              color:const Color(0xFFE9E9F3),
+              color: Theme.of(context).brightness == Brightness.light
+                  ? const Color(0xFFE9E9F3)
+                  : const Color(0xFF1B1B23),
               child: TabBar(
                 tabs: kTabs,
               ),

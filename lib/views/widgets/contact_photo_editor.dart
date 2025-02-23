@@ -1,5 +1,5 @@
 import 'dart:typed_data';
-import 'package:phone_book/generated/l10n.dart';
+import 'package:phone/generated/l10n.dart';
 import 'package:flutter/material.dart';
 
 // ignore: must_be_immutable

@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/contact.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/models/contact_mapper.dart';
-import 'package:phone_book/viewmodels/contact_view_model.dart';
-import 'package:phone_book/views/pages/create_or_edit_page.dart';
-import 'package:phone_book/views/pages/settings.dart';
-import 'package:phone_book/views/pages/share_contact.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/models/contact_mapper.dart';
+import 'package:phone/viewmodels/contact_view_model.dart';
+import 'package:phone/views/pages/create_or_edit_page.dart';
+import 'package:phone/views/pages/settings.dart';
+import 'package:phone/views/pages/share_contact.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'message/message_page.dart';
 import 'package:provider/provider.dart';
@@ -46,14 +46,14 @@ class ContactProfileState extends State<ContactProfile> {
         actions: [
           IconButton(
               onPressed: () async {
-                Contact? newContact = await Navigator.push(
+                  Contact? updatedContact = await Navigator.push(
                     context,
                     MaterialPageRoute(
                         builder: (context) =>
                             CreateOrEditPage(contact: widget.contact)));
-                if(newContact != null){
+                  if (updatedContact != null) {
                   setState(() {
-                    widget.contact = newContact;
+                      widget.contact = updatedContact;
                   });
                 }
               },

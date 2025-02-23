@@ -16,22 +16,22 @@ class SpeechRecognitionViewModel extends ChangeNotifier {
 
   Future<bool> requestMicrophonePermission() async {
     var status = await Permission.microphone.status;
-    if (!status.isGranted) {
-      status = await Permission.microphone.request();
+    if (status.isGranted) {
+      return true;
+    } else if (status.isDenied) {
+      await Permission.microphone.request();
+      return await Permission.microphone.isGranted;
     }
-    return status.isGranted;
+    return false;
   }
 
   void startListening() async {
-  if (!await requestMicrophonePermission()) {
-    return;
-  }
-  if (_searchRepository.isRecording == false) {
-    await _searchRepository.initRecoreder();
-    await _searchRepository.startRecording();
-    isVisibleAnimation = true;
-    notifyListeners();
-  }
+    if (_searchRepository.isRecording == false) {
+      await _searchRepository.initRecoreder();
+      await _searchRepository.startRecording();
+      isVisibleAnimation = true;
+      notifyListeners();
+    }
 }
 
   Future<void> stopListening() async {

@@ -1,4 +1,4 @@
-import 'package:phone_book/models/contact_mapper.dart';
+import 'package:phone/models/contact_mapper.dart';
 import '../../../viewmodels/contact_view_model.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';

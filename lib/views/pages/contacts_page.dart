@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:phone_book/generated/l10n.dart';
+import 'package:phone/generated/l10n.dart';
 import 'package:provider/provider.dart';
 import '../../viewmodels/contact_view_model.dart';
 import 'create_or_edit_page.dart';
@@ -25,7 +25,8 @@ class _ContactsState extends State<Contacts> {
             onPressed: (){
               Navigator.push(
                 context,
-                MaterialPageRoute(builder: (context) => CreateOrEditPage()),
+                MaterialPageRoute(
+                    builder: (context) => const CreateOrEditPage()),
               );
             },
             style: Theme.of(context).brightness == Brightness.light ? const ButtonStyle(

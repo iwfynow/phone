@@ -1,6 +1,6 @@
 import 'dart:typed_data';
 import 'package:objectbox/objectbox.dart';
-import 'package:phone_book/models/objectbox.g.dart';
+import 'package:phone/models/objectbox.g.dart';
 
 @Entity()
 class ContactEntity {

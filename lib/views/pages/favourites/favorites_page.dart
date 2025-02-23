@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/models/contact_entity.dart';
-import 'package:phone_book/models/contact_mapper.dart';
-import 'package:phone_book/viewmodels/contact_view_model.dart';
-import 'package:phone_book/views/pages/contact_profile.dart';
-import 'package:phone_book/views/pages/message/message_page.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/models/contact_entity.dart';
+import 'package:phone/models/contact_mapper.dart';
+import 'package:phone/viewmodels/contact_view_model.dart';
+import 'package:phone/views/pages/contact_profile.dart';
+import 'package:phone/views/pages/message/message_page.dart';
 import 'choose_favourite_contact.dart';
 import 'package:provider/provider.dart';
 

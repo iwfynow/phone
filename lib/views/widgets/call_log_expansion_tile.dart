@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_contacts/flutter_contacts.dart';
 import 'package:intl/intl.dart';
-import 'package:phone_book/generated/l10n.dart';
-import 'package:phone_book/viewmodels/filtration_viewmodel.dart';
-import 'package:phone_book/views/pages/create_or_edit_page.dart';
-import 'package:phone_book/views/pages/message/message_page.dart';
+import 'package:phone/generated/l10n.dart';
+import 'package:phone/viewmodels/filtration_viewmodel.dart';
+import 'package:phone/views/pages/create_or_edit_page.dart';
+import 'package:phone/views/pages/message/message_page.dart';
 import 'package:provider/provider.dart';
 import 'package:url_launcher/url_launcher.dart';
 import '../../viewmodels/contact_view_model.dart';
@@ -53,7 +53,12 @@ class CallLogExpansionTile extends StatelessWidget {
           const SizedBox(width: 8),
           Text(
             formattedDate,
-            style: TextStyle(color:  icon.color == Colors.red ? Colors.red : Colors.black),
+            style: TextStyle(
+                color: icon.color == Colors.red
+                    ? Colors.red
+                    : Theme.of(context).brightness == Brightness.light
+                        ? Colors.black
+                        : Colors.white),
           ),
         ],
       ),
